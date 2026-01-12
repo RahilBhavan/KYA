@@ -45,11 +45,19 @@ contract DeployExpansionFeatures is Script {
         KYAToken kyaToken = new KYAToken("KYA Token", "KYA");
         console.log("  KYAToken:", address(kyaToken));
 
+        // Create proposers array with governance (will be set after deployment)
+        address[] memory proposers = new address[](1);
+        proposers[0] = address(0); // Placeholder, will be updated
+        
+        // Create executors array with multi-sig
+        address[] memory executors = new address[](1);
+        executors[0] = multisigAddress;
+        
         TimelockController timelock = new TimelockController(
             1 days,
-            new address[](0), // Will be set to governance
-            new address[](1), // Multi-sig as executor
-            msg.sender
+            proposers,
+            executors,
+            msg.sender // Admin (will transfer to multi-sig later)
         );
         console.log("  TimelockController:", address(timelock));
 
@@ -108,16 +116,29 @@ contract DeployExpansionFeatures is Script {
         // Setup roles and permissions
         console.log("Setting up roles and permissions...");
         
-        // Grant governance roles
-        timelock.grantRole(timelock.PROPOSER_ROLE(), address(governance));
-        timelock.grantRole(timelock.EXECUTOR_ROLE(), address(governance));
+        // Grant governance MINTER_ROLE (for token distribution)
+        kyaToken.grantRole(kyaToken.MINTER_ROLE(), address(governance));
+        console.log("  [OK] Governance granted MINTER_ROLE");
         
         // Transfer admin roles to multi-sig
         kyaToken.grantRole(kyaToken.DEFAULT_ADMIN_ROLE(), multisigAddress);
+        kyaToken.revokeRole(kyaToken.DEFAULT_ADMIN_ROLE(), msg.sender);
+        
         governance.grantRole(governance.DEFAULT_ADMIN_ROLE(), multisigAddress);
+        governance.revokeRole(governance.DEFAULT_ADMIN_ROLE(), msg.sender);
+        
         marketplace.grantRole(marketplace.DEFAULT_ADMIN_ROLE(), multisigAddress);
+        marketplace.revokeRole(marketplace.DEFAULT_ADMIN_ROLE(), msg.sender);
+        
         insurancePool.grantRole(insurancePool.DEFAULT_ADMIN_ROLE(), multisigAddress);
+        insurancePool.revokeRole(insurancePool.DEFAULT_ADMIN_ROLE(), msg.sender);
+        
         crossChain.grantRole(crossChain.DEFAULT_ADMIN_ROLE(), multisigAddress);
+        crossChain.revokeRole(crossChain.DEFAULT_ADMIN_ROLE(), msg.sender);
+        
+        // Transfer timelock admin to multi-sig (last, as it controls governance)
+        timelock.grantRole(timelock.DEFAULT_ADMIN_ROLE(), multisigAddress);
+        timelock.revokeRole(timelock.DEFAULT_ADMIN_ROLE(), msg.sender);
         
         console.log("  [OK] All admin roles transferred to multi-sig");
         console.log("");
