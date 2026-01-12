@@ -87,10 +87,11 @@ contract ProtocolInvariantsTest is BaseTest {
         (, uint256 tokenId,) = mintDefaultAgent(user1);
 
         uint256 previousScore = 0;
-        bytes memory proof = abi.encode("test-proof");
 
-        // Add multiple proofs
+        // Add multiple proofs with different proof data to avoid replay
         for (uint256 i = 0; i < 10; i++) {
+            bytes memory proof = abi.encode("test-proof", i, block.timestamp + i);
+            
             vm.prank(zkProver);
             reputationScore.verifyProof(
                 tokenId,
@@ -111,10 +112,10 @@ contract ProtocolInvariantsTest is BaseTest {
     function invariant_badgeCountLessThanOrEqualProofCount() public {
         (, uint256 tokenId,) = mintDefaultAgent(user1);
 
-        bytes memory proof = abi.encode("test-proof");
-
-        // Add proofs
+        // Add proofs with different proof data to avoid replay
         for (uint256 i = 0; i < 5; i++) {
+            bytes memory proof = abi.encode("test-proof", i, block.timestamp + i);
+            
             vm.prank(zkProver);
             reputationScore.verifyProof(
                 tokenId,

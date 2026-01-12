@@ -717,6 +717,11 @@ contract InsuranceVaultTest is BaseTest {
     function testFuzz_unstake(uint256 unstakeAmount) public {
         uint256 stakeAmount = TestConstants.MINIMUM_STAKE * 2;
         unstakeAmount = bound(unstakeAmount, 1, stakeAmount);
+        
+        // Additional safety check
+        if (unstakeAmount > stakeAmount) {
+            unstakeAmount = stakeAmount;
+        }
 
         // Stake first
         vm.prank(user1);
@@ -733,20 +738,32 @@ contract InsuranceVaultTest is BaseTest {
             abi.encodeWithSignature("stake(uint256,uint256)", tokenId, stakeAmount)
         );
 
-        // Unstake (not verified if unstaking all, so no cooldown needed)
-        if (unstakeAmount < stakeAmount) {
-            uint256 balanceBefore = mockUSDC.balanceOf(tbaAddress);
+        // Agent is verified (stake >= minimum)
+        // Contract ALWAYS requires cooldown if agent WAS verified (checked before unstaking)
+        // Request unstake to start cooldown
+        vm.prank(user1);
+        IAgentAccount(tbaAddress).execute(
+            address(insuranceVault),
+            0,
+            abi.encodeWithSignature("requestUnstake(uint256)", tokenId)
+        );
+        // Wait for cooldown
+        vm.warp(block.timestamp + TestConstants.UNSTAKE_COOLDOWN + 1);
 
-            vm.prank(user1);
-            IAgentAccount(tbaAddress).execute(
-                address(insuranceVault),
-                0,
-                abi.encodeWithSignature("unstake(uint256,uint256)", tokenId, unstakeAmount)
-            );
+        uint256 balanceBefore = mockUSDC.balanceOf(tbaAddress);
 
-            uint256 balanceAfter = mockUSDC.balanceOf(tbaAddress);
-            assertEq(balanceAfter - balanceBefore, unstakeAmount, "USDC not returned");
-        }
+        vm.prank(user1);
+        IAgentAccount(tbaAddress).execute(
+            address(insuranceVault),
+            0,
+            abi.encodeWithSignature("unstake(uint256,uint256)", tokenId, unstakeAmount)
+        );
+
+        uint256 balanceAfter = mockUSDC.balanceOf(tbaAddress);
+        assertEq(balanceAfter - balanceBefore, unstakeAmount, "USDC not returned");
+        
+        IInsuranceVault.StakeInfo memory stakeInfo = insuranceVault.getStakeInfo(tokenId);
+        assertEq(stakeInfo.amount, stakeAmount - unstakeAmount, "Stake should be reduced");
     }
 
     function testFuzz_claim(uint256 claimAmount) public {

@@ -48,9 +48,15 @@ contract InsuranceVaultFuzzTest is BaseTest {
     }
 
     function testFuzz_unstake(uint256 stakeAmount, uint256 unstakeAmount) public {
-        // Bound amounts
+        // Bound amounts - ensure reasonable values
         stakeAmount = bound(stakeAmount, TestConstants.MINIMUM_STAKE, 100000 * 10**6);
+        // Ensure unstakeAmount doesn't exceed stakeAmount and is reasonable
         unstakeAmount = bound(unstakeAmount, 1, stakeAmount);
+        
+        // Additional safety check
+        if (unstakeAmount > stakeAmount) {
+            unstakeAmount = stakeAmount;
+        }
 
         // Fund and stake
         fundTBA(tbaAddress, stakeAmount * 2);
@@ -69,11 +75,12 @@ contract InsuranceVaultFuzzTest is BaseTest {
             abi.encodeWithSignature("stake(uint256,uint256)", tokenId, stakeAmount)
         );
 
-        // Unstake (if not verified, no cooldown needed)
-        // If verified, we need to request unstake and wait for cooldown
+        // Check if agent is verified (stake >= minimum makes it verified)
         bool isVerified = insuranceVault.isVerified(tokenId);
         
-        if (isVerified && unstakeAmount < stakeAmount) {
+        // If verified, ALWAYS need cooldown (contract checks if agent WAS verified before unstaking)
+        // This applies even if unstaking all, because the check happens before the unstake
+        if (isVerified) {
             // Request unstake to start cooldown
             vm.prank(user1);
             IAgentAccount(tbaAddress).execute(
@@ -135,14 +142,14 @@ contract InsuranceVaultFuzzTest is BaseTest {
     }
 
     function testFuzz_multipleStakes(uint256 stake1, uint256 stake2) public {
-        // Bound amounts
+        // Bound amounts - both must meet minimum (contract requires minimum for each stake)
         stake1 = bound(stake1, TestConstants.MINIMUM_STAKE, 100000 * 10**6);
-        stake2 = bound(stake2, 1, 100000 * 10**6);
+        stake2 = bound(stake2, TestConstants.MINIMUM_STAKE, 100000 * 10**6);
 
         // Fund TBA
         fundTBA(tbaAddress, (stake1 + stake2) * 2);
 
-        // First stake
+        // First stake (must meet minimum to verify agent)
         vm.prank(user1);
         IAgentAccount(tbaAddress).execute(
             address(mockUSDC),
@@ -157,7 +164,7 @@ contract InsuranceVaultFuzzTest is BaseTest {
             abi.encodeWithSignature("stake(uint256,uint256)", tokenId, stake1)
         );
 
-        // Second stake
+        // Second stake (can be any amount since agent is already verified)
         vm.prank(user1);
         IAgentAccount(tbaAddress).execute(
             address(mockUSDC),
