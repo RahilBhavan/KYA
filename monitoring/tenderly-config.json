@@ -1,0 +1,151 @@
+{
+  "apiKey": "${TENDERLY_API_KEY}",
+  "project": "${TENDERLY_PROJECT_SLUG}",
+  "username": "${TENDERLY_USERNAME}",
+  "network": "base-sepolia",
+  "chainId": 84532,
+  "contracts": {
+    "AgentLicense": {
+      "address": "${AGENT_LICENSE_ADDRESS}",
+      "events": [
+        "Transfer",
+        "AgentMinted",
+        "BaseURIUpdated"
+      ]
+    },
+    "AgentRegistry": {
+      "address": "${AGENT_REGISTRY_ADDRESS}",
+      "events": [
+        "AgentMinted",
+        "MintingFeeUpdated",
+        "Paused",
+        "Unpaused"
+      ]
+    },
+    "ReputationScore": {
+      "address": "${REPUTATION_SCORE_ADDRESS}",
+      "events": [
+        "ProofVerified",
+        "BadgeAwarded",
+        "ReputationUpdated",
+        "BadgeCreated"
+      ]
+    },
+    "InsuranceVault": {
+      "address": "${INSURANCE_VAULT_ADDRESS}",
+      "events": [
+        "Staked",
+        "UnstakeRequested",
+        "Unstaked",
+        "ClaimSubmitted",
+        "ClaimResolved",
+        "ClaimChallenged",
+        "FeesWithdrawn",
+        "SettingsUpdated",
+        "Paused",
+        "Unpaused"
+      ]
+    },
+    "Paymaster": {
+      "address": "${PAYMASTER_ADDRESS}",
+      "events": [
+        "GasSponsored",
+        "Deposited",
+        "Withdrawn",
+        "TwitterVerified"
+      ]
+    },
+    "MerchantSDK": {
+      "address": "${MERCHANT_SDK_ADDRESS}",
+      "events": [
+        "AgentVerified",
+        "AgentSuspended",
+        "ViolationReported"
+      ]
+    }
+  },
+  "alerts": {
+    "critical": {
+      "contractPaused": {
+        "enabled": true,
+        "channels": ["email", "slack"],
+        "threshold": 1
+      },
+      "largeStake": {
+        "enabled": true,
+        "channels": ["email", "slack", "sms"],
+        "threshold": "10% of total staked"
+      },
+      "claimSubmitted": {
+        "enabled": true,
+        "channels": ["email", "slack"],
+        "threshold": 1
+      },
+      "adminRoleChange": {
+        "enabled": true,
+        "channels": ["email", "slack", "sms"],
+        "threshold": 1
+      },
+      "lowBalance": {
+        "enabled": true,
+        "channels": ["email", "slack"],
+        "thresholds": {
+          "eth": "1 ETH",
+          "usdc": "1000 USDC"
+        }
+      }
+    },
+    "warning": {
+      "highGasUsage": {
+        "enabled": true,
+        "channels": ["email"],
+        "threshold": 500000
+      },
+      "unusualActivity": {
+        "enabled": true,
+        "channels": ["email"],
+        "threshold": "10 transactions in 1 hour"
+      },
+      "failedTransactions": {
+        "enabled": true,
+        "channels": ["email"],
+        "threshold": "10 failures in 1 hour"
+      }
+    },
+    "informational": {
+      "dailySummary": {
+        "enabled": true,
+        "channels": ["email"],
+        "schedule": "daily at 9:00 AM UTC"
+      },
+      "weeklyReport": {
+        "enabled": true,
+        "channels": ["email"],
+        "schedule": "weekly on Monday at 9:00 AM UTC"
+      }
+    }
+  },
+  "metrics": {
+    "protocolHealth": [
+      "totalAgents",
+      "activeStakedAmount",
+      "totalClaims",
+      "reputationScoreDistribution",
+      "paymasterSponsorshipCount"
+    ],
+    "economic": [
+      "totalValueStaked",
+      "claimPayoutRatio",
+      "feeCollection",
+      "averageStakePerAgent",
+      "reputationTierDistribution"
+    ],
+    "security": [
+      "failedTransactions",
+      "revertedCalls",
+      "unusualActivityPatterns",
+      "accessControlViolations",
+      "emergencyPauseEvents"
+    ]
+  }
+}

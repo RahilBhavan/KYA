@@ -137,6 +137,12 @@ forge script script/DeployBase.s.sol \
 - [Monitoring Guide](./docs/MONITORING.md) - Production monitoring setup
 - [Troubleshooting](./docs/TROUBLESHOOTING.md) - Common issues and solutions
 
+### Production Setup Guides
+- [Multi-sig Setup](./docs/MULTISIG_SETUP.md) - Multi-signature wallet administration
+- [Monitoring Setup](./docs/MONITORING_SETUP.md) - Production monitoring and alerting
+- [Community Setup](./docs/COMMUNITY_SETUP.md) - Community launch and onboarding
+- [Production Features Plan](./docs/PRODUCTION_FEATURES_PLAN.md) - Comprehensive implementation plan
+
 ### SDK Documentation
 - [JavaScript SDK](./integrations/javascript/README.md) - SDK usage and examples
 
