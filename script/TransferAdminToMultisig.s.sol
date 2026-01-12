@@ -248,18 +248,19 @@ contract TransferAdminToMultisig is Script {
             }
         }
 
-        if (merchantSDKAddr != address(0)) {
-            MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
-            bool multisigHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, multisigAddress);
-            bool deployerHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, deployer);
-            
-            if (multisigHasRole && !deployerHasRole) {
-                console.log("  [OK] MerchantSDK: Verified");
-            } else {
-                console.log("  [FAIL] MerchantSDK: Verification failed");
-                allVerified = false;
-            }
-        }
+        // MerchantSDK doesn't use AccessControl, skip verification
+        // if (merchantSDKAddr != address(0)) {
+        //     MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
+        //     bool multisigHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, multisigAddress);
+        //     bool deployerHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, deployer);
+        //     
+        //     if (multisigHasRole && !deployerHasRole) {
+        //         console.log("  [OK] MerchantSDK: Verified");
+        //     } else {
+        //         console.log("  [FAIL] MerchantSDK: Verification failed");
+        //         allVerified = false;
+        //     }
+        // }
 
         if (zkAdapterAddr != address(0)) {
             ZKAdapter zkAdapter = ZKAdapter(zkAdapterAddr);
