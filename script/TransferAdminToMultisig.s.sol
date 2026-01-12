@@ -87,7 +87,7 @@ contract TransferAdminToMultisig is Script {
             AgentRegistry agentRegistry = AgentRegistry(agentRegistryAddr);
             agentRegistry.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             agentRegistry.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ AgentRegistry admin transferred");
+            console.log("  [OK] AgentRegistry admin transferred");
         }
 
         // Transfer ReputationScore admin role
@@ -96,7 +96,7 @@ contract TransferAdminToMultisig is Script {
             ReputationScore reputationScore = ReputationScore(reputationScoreAddr);
             reputationScore.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             reputationScore.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ ReputationScore admin transferred");
+            console.log("  [OK] ReputationScore admin transferred");
         }
 
         // Transfer InsuranceVault admin role
@@ -105,7 +105,7 @@ contract TransferAdminToMultisig is Script {
             InsuranceVault insuranceVault = InsuranceVault(insuranceVaultAddr);
             insuranceVault.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             insuranceVault.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ InsuranceVault admin transferred");
+            console.log("  [OK] InsuranceVault admin transferred");
         }
 
         // Transfer Paymaster admin role
@@ -114,7 +114,7 @@ contract TransferAdminToMultisig is Script {
             Paymaster paymaster = Paymaster(paymasterAddr);
             paymaster.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             paymaster.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ Paymaster admin transferred");
+            console.log("  [OK] Paymaster admin transferred");
         }
 
         // Transfer MerchantSDK admin role
@@ -123,7 +123,7 @@ contract TransferAdminToMultisig is Script {
             MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
             merchantSDK.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             merchantSDK.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ MerchantSDK admin transferred");
+            console.log("  [OK] MerchantSDK admin transferred");
         }
 
         // Transfer ZKAdapter admin role
@@ -132,7 +132,7 @@ contract TransferAdminToMultisig is Script {
             ZKAdapter zkAdapter = ZKAdapter(zkAdapterAddr);
             zkAdapter.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             zkAdapter.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ ZKAdapter admin transferred");
+            console.log("  [OK] ZKAdapter admin transferred");
         }
 
         // Transfer OracleAdapter admin role
@@ -141,7 +141,7 @@ contract TransferAdminToMultisig is Script {
             OracleAdapter oracleAdapter = OracleAdapter(oracleAdapterAddr);
             oracleAdapter.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             oracleAdapter.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ OracleAdapter admin transferred");
+            console.log("  [OK] OracleAdapter admin transferred");
         }
 
         vm.stopBroadcast();
@@ -200,9 +200,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = agentRegistry.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ AgentRegistry: Verified");
+                console.log("  [OK] AgentRegistry: Verified");
             } else {
-                console.log("  ✗ AgentRegistry: Verification failed");
+                console.log("  [FAIL] AgentRegistry: Verification failed");
                 allVerified = false;
             }
         }
@@ -213,9 +213,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = reputationScore.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ ReputationScore: Verified");
+                console.log("  [OK] ReputationScore: Verified");
             } else {
-                console.log("  ✗ ReputationScore: Verification failed");
+                console.log("  [FAIL] ReputationScore: Verification failed");
                 allVerified = false;
             }
         }
@@ -226,9 +226,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = insuranceVault.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ InsuranceVault: Verified");
+                console.log("  [OK] InsuranceVault: Verified");
             } else {
-                console.log("  ✗ InsuranceVault: Verification failed");
+                console.log("  [FAIL] InsuranceVault: Verification failed");
                 allVerified = false;
             }
         }
@@ -239,9 +239,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = paymaster.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ Paymaster: Verified");
+                console.log("  [OK] Paymaster: Verified");
             } else {
-                console.log("  ✗ Paymaster: Verification failed");
+                console.log("  [FAIL] Paymaster: Verification failed");
                 allVerified = false;
             }
         }
@@ -252,9 +252,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ MerchantSDK: Verified");
+                console.log("  [OK] MerchantSDK: Verified");
             } else {
-                console.log("  ✗ MerchantSDK: Verification failed");
+                console.log("  [FAIL] MerchantSDK: Verification failed");
                 allVerified = false;
             }
         }
@@ -265,9 +265,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = zkAdapter.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ ZKAdapter: Verified");
+                console.log("  [OK] ZKAdapter: Verified");
             } else {
-                console.log("  ✗ ZKAdapter: Verification failed");
+                console.log("  [FAIL] ZKAdapter: Verification failed");
                 allVerified = false;
             }
         }
@@ -278,9 +278,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = oracleAdapter.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ OracleAdapter: Verified");
+                console.log("  [OK] OracleAdapter: Verified");
             } else {
-                console.log("  ✗ OracleAdapter: Verification failed");
+                console.log("  [FAIL] OracleAdapter: Verification failed");
                 allVerified = false;
             }
         }
