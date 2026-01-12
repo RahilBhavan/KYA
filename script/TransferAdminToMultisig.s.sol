@@ -151,7 +151,7 @@ contract TransferAdminToMultisig is Script {
             reputationScoreAddr,
             insuranceVaultAddr,
             paymasterAddr,
-            merchantSDKAddr,
+            address(0), // MerchantSDK doesn't use AccessControl
             zkAdapterAddr,
             oracleAdapterAddr,
             deployer
@@ -168,7 +168,7 @@ contract TransferAdminToMultisig is Script {
         address reputationScoreAddr,
         address insuranceVaultAddr,
         address paymasterAddr,
-        address merchantSDKAddr,
+        address, // merchantSDKAddr - MerchantSDK doesn't use AccessControl
         address zkAdapterAddr,
         address oracleAdapterAddr,
         address deployer
