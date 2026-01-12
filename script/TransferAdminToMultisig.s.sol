@@ -8,7 +8,8 @@ import {AgentRegistry} from "../src/AgentRegistry.sol";
 import {ReputationScore} from "../src/ReputationScore.sol";
 import {InsuranceVault} from "../src/InsuranceVault.sol";
 import {Paymaster} from "../src/Paymaster.sol";
-import {MerchantSDK} from "../src/MerchantSDK.sol";
+// MerchantSDK doesn't use AccessControl, so no admin transfer needed
+// import {MerchantSDK} from "../src/MerchantSDK.sol";
 import {ZKAdapter} from "../src/integrations/ZKAdapter.sol";
 import {OracleAdapter} from "../src/integrations/OracleAdapter.sol";
 
@@ -66,7 +67,8 @@ contract TransferAdminToMultisig is Script {
         address reputationScoreAddr = vm.envAddress("REPUTATION_SCORE_ADDRESS");
         address insuranceVaultAddr = vm.envAddress("INSURANCE_VAULT_ADDRESS");
         address paymasterAddr = vm.envAddress("PAYMASTER_ADDRESS");
-        address merchantSDKAddr = vm.envAddress("MERCHANT_SDK_ADDRESS");
+        // MerchantSDK doesn't use AccessControl
+        // address merchantSDKAddr = vm.envAddress("MERCHANT_SDK_ADDRESS");
         address zkAdapterAddr = vm.envAddress("ZK_ADAPTER_ADDRESS");
         address oracleAdapterAddr = vm.envAddress("ORACLE_ADAPTER_ADDRESS");
 
@@ -117,16 +119,7 @@ contract TransferAdminToMultisig is Script {
             console.log("  [OK] Paymaster admin transferred");
         }
 
-        // Transfer MerchantSDK admin role
-        // Note: MerchantSDK uses AccessControl, but may not have admin functions
-        // If MerchantSDK has admin functions, uncomment below:
-        // if (merchantSDKAddr != address(0)) {
-        //     console.log("Transferring MerchantSDK admin role...");
-        //     MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
-        //     merchantSDK.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
-        //     merchantSDK.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-        //     console.log("  [OK] MerchantSDK admin transferred");
-        // }
+        // MerchantSDK doesn't use AccessControl, so no admin role to transfer
 
         // Transfer ZKAdapter admin role
         if (zkAdapterAddr != address(0)) {

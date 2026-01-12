@@ -8,7 +8,8 @@ import {AgentRegistry} from "../src/AgentRegistry.sol";
 import {ReputationScore} from "../src/ReputationScore.sol";
 import {InsuranceVault} from "../src/InsuranceVault.sol";
 import {Paymaster} from "../src/Paymaster.sol";
-import {MerchantSDK} from "../src/MerchantSDK.sol";
+// MerchantSDK doesn't use AccessControl
+// import {MerchantSDK} from "../src/MerchantSDK.sol";
 import {ZKAdapter} from "../src/integrations/ZKAdapter.sol";
 import {OracleAdapter} from "../src/integrations/OracleAdapter.sol";
 
