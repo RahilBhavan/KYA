@@ -119,6 +119,7 @@ forge script script/DeployBase.s.sol \
 ## Documentation
 
 ### Core Documentation
+- [Comprehensive Learning Guide](./docs/COMPREHENSIVE_LEARNING_GUIDE.md) - **Complete educational resource** - Learn architecture, code, use cases, and best practices
 - [Project Status](./PROJECT_STATUS.md) - Complete project status and phase completion
 - [Production Readiness](./PRODUCTION_READINESS.md) - Production readiness checklist
 - [Deployment Guide](./DEPLOYMENT_GUIDE.md) - Complete deployment instructions
