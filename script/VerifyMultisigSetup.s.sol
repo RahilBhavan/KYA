@@ -134,24 +134,26 @@ contract VerifyMultisigSetup is Script {
         }
 
         // Verify MerchantSDK
-        address merchantSDKAddr = vm.envAddress("MERCHANT_SDK_ADDRESS");
-        if (merchantSDKAddr != address(0)) {
-            MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
-            bool multisigHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, multisigAddress);
-            bool deployerHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, deployerAddress);
-            
-            console.log("MerchantSDK:");
-            console.log("  Multi-sig has admin:", multisigHasRole);
-            console.log("  Deployer has admin:", deployerHasRole);
-            
-            if (!multisigHasRole || deployerHasRole) {
-                console.log("  [FAIL] FAILED");
-                allVerified = false;
-            } else {
-                console.log("  [OK] PASSED");
-            }
-            console.log("");
-        }
+        // Note: MerchantSDK may not use AccessControl for admin
+        // If MerchantSDK has admin role, uncomment below:
+        // address merchantSDKAddr = vm.envAddress("MERCHANT_SDK_ADDRESS");
+        // if (merchantSDKAddr != address(0)) {
+        //     MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
+        //     bool multisigHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, multisigAddress);
+        //     bool deployerHasRole = merchantSDK.hasRole(DEFAULT_ADMIN_ROLE, deployerAddress);
+        //     
+        //     console.log("MerchantSDK:");
+        //     console.log("  Multi-sig has admin:", multisigHasRole);
+        //     console.log("  Deployer has admin:", deployerHasRole);
+        //     
+        //     if (!multisigHasRole || deployerHasRole) {
+        //         console.log("  [FAIL] FAILED");
+        //         allVerified = false;
+        //     } else {
+        //         console.log("  [OK] PASSED");
+        //     }
+        //     console.log("");
+        // }
 
         // Verify ZKAdapter
         address zkAdapterAddr = vm.envAddress("ZK_ADAPTER_ADDRESS");

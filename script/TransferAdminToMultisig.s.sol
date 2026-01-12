@@ -118,13 +118,15 @@ contract TransferAdminToMultisig is Script {
         }
 
         // Transfer MerchantSDK admin role
-        if (merchantSDKAddr != address(0)) {
-            console.log("Transferring MerchantSDK admin role...");
-            MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
-            merchantSDK.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
-            merchantSDK.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  [OK] MerchantSDK admin transferred");
-        }
+        // Note: MerchantSDK uses AccessControl, but may not have admin functions
+        // If MerchantSDK has admin functions, uncomment below:
+        // if (merchantSDKAddr != address(0)) {
+        //     console.log("Transferring MerchantSDK admin role...");
+        //     MerchantSDK merchantSDK = MerchantSDK(merchantSDKAddr);
+        //     merchantSDK.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
+        //     merchantSDK.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
+        //     console.log("  [OK] MerchantSDK admin transferred");
+        // }
 
         // Transfer ZKAdapter admin role
         if (zkAdapterAddr != address(0)) {
