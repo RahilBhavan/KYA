@@ -55,7 +55,7 @@ foundryup
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/KYA
+git clone https://github.com/RahilBhavan/KYA.git
 cd KYA
 
 # Install dependencies
