@@ -78,7 +78,7 @@ contract TransferAdminToMultisig is Script {
             AgentLicense agentLicense = AgentLicense(agentLicenseAddr);
             agentLicense.grantRole(DEFAULT_ADMIN_ROLE, multisigAddress);
             agentLicense.revokeRole(DEFAULT_ADMIN_ROLE, deployer);
-            console.log("  ✓ AgentLicense admin transferred");
+            console.log("  [OK] AgentLicense admin transferred");
         }
 
         // Transfer AgentRegistry admin role
@@ -187,9 +187,9 @@ contract TransferAdminToMultisig is Script {
             bool deployerHasRole = agentLicense.hasRole(DEFAULT_ADMIN_ROLE, deployer);
             
             if (multisigHasRole && !deployerHasRole) {
-                console.log("  ✓ AgentLicense: Verified");
+                console.log("  [OK] AgentLicense: Verified");
             } else {
-                console.log("  ✗ AgentLicense: Verification failed");
+                console.log("  [FAIL] AgentLicense: Verification failed");
                 allVerified = false;
             }
         }
@@ -287,9 +287,9 @@ contract TransferAdminToMultisig is Script {
 
         console.log("");
         if (allVerified) {
-            console.log("✅ All admin roles successfully transferred!");
+            console.log("[SUCCESS] All admin roles successfully transferred!");
         } else {
-            console.log("❌ Some transfers failed. Please review.");
+            console.log("[ERROR] Some transfers failed. Please review.");
         }
     }
 }

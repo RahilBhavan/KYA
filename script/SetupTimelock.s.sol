@@ -89,7 +89,7 @@ contract SetupTimelock is Script {
             address(0) // No admin (multi-sig controls everything)
         );
 
-        console.log("  ✓ TimelockController deployed at:", address(timelock));
+        console.log("  [OK] TimelockController deployed at:", address(timelock));
         console.log("");
 
         // Verify configuration
@@ -97,7 +97,7 @@ contract SetupTimelock is Script {
         require(timelock.getMinDelay() == timelockDelay, "Delay mismatch");
         require(timelock.hasRole(timelock.PROPOSER_ROLE(), multisigAddress), "Proposer role not set");
         require(timelock.hasRole(timelock.EXECUTOR_ROLE(), multisigAddress), "Executor role not set");
-        console.log("  ✓ Configuration verified");
+        console.log("  [OK] Configuration verified");
         console.log("");
 
         vm.stopBroadcast();

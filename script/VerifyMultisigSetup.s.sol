@@ -45,10 +45,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -65,10 +65,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -85,10 +85,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -105,10 +105,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -125,10 +125,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -145,10 +145,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -165,10 +165,10 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
@@ -185,20 +185,20 @@ contract VerifyMultisigSetup is Script {
             console.log("  Deployer has admin:", deployerHasRole);
             
             if (!multisigHasRole || deployerHasRole) {
-                console.log("  ❌ FAILED");
+                console.log("  [FAIL] FAILED");
                 allVerified = false;
             } else {
-                console.log("  ✅ PASSED");
+                console.log("  [OK] PASSED");
             }
             console.log("");
         }
 
         console.log("========================================");
         if (allVerified) {
-            console.log("✅ All verifications passed!");
+            console.log("[SUCCESS] All verifications passed!");
             console.log("Multi-sig setup is correct.");
         } else {
-            console.log("❌ Some verifications failed!");
+            console.log("[ERROR] Some verifications failed!");
             console.log("Please review and fix issues.");
         }
         console.log("========================================");
