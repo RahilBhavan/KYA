@@ -184,7 +184,7 @@ Contributions are welcome! Please read our contributing guidelines before submit
 
 ## License
 
-MIT License - see LICENSE file for details
+MIT License - see [LICENSE](./LICENSE) file for details
 
 ## Contact
 

@@ -4,16 +4,26 @@ cache/
 cache_hardhat/
 broadcast/
 
-# Dotenv file
+# Environment files
 .env
+.env.*
+!.env.example
+*.bak
+*.backup
 
 # Node
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn.lock
+.pnpm-debug.log
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
 
 # IDE
 .vscode/
@@ -21,17 +31,65 @@ yarn-error.log
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
+*.sublime-*
 
 # Coverage
 coverage/
 coverage.json
 lcov.info
+*.lcov
 
 # Certora
 .certora_build/
 .certora_config/
 certora_*
 
-# Misc
+# Foundry
+out/
+cache/
+cache_hardhat/
+broadcast/
+*.sol.js
+
+# Logs
 *.log
+logs/
+
+# Secrets and keys
+*.pem
+*.key
+*.secret
 wallets.json
+.secrets/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+tmp/
+temp/
+
+# Build artifacts
+dist/
+build/
+*.o
+*.a
+*.so
+
+# Python (if any)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# TypeScript
+*.tsbuildinfo
+
+# Test outputs
+test_output.txt
+test_results/
