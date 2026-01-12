@@ -134,7 +134,8 @@ contract InsurancePool is IInsurancePool, AccessControl, ReentrancyGuard {
         nonReentrant
     {
         Pool storage pool = _pools[poolId];
-        if (pool.poolId == 0) {
+        // Check if pool exists by checking createdAt
+        if (pool.createdAt == 0) {
             revert PoolNotFound();
         }
         if (!pool.active) {
@@ -186,7 +187,8 @@ contract InsurancePool is IInsurancePool, AccessControl, ReentrancyGuard {
      */
     function leavePool(uint256 poolId, uint256 tokenId) external override nonReentrant {
         Pool storage pool = _pools[poolId];
-        if (pool.poolId == 0) {
+        // Check if pool exists by checking createdAt
+        if (pool.createdAt == 0) {
             revert PoolNotFound();
         }
         
@@ -225,7 +227,8 @@ contract InsurancePool is IInsurancePool, AccessControl, ReentrancyGuard {
      */
     function getPool(uint256 poolId) external view override returns (Pool memory pool) {
         pool = _pools[poolId];
-        if (pool.poolId == 0) {
+        // Check if pool exists by checking createdAt (0 means not created)
+        if (pool.createdAt == 0) {
             revert PoolNotFound();
         }
         return pool;

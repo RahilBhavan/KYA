@@ -74,12 +74,16 @@ contract InsurancePoolTest is BaseTest {
         vm.prank(deployer);
         uint256 poolId = insurancePool.createPool("Test Pool", 100, 20);
 
-        // Approve USDC
+        // Calculate total needed (stake + premium)
+        uint256 stakeAmount = 10_000 * 10**6; // 10k USDC
+        uint256 premium = (stakeAmount * 100) / 10000; // 1% premium
+        uint256 totalNeeded = stakeAmount + premium;
+
+        // Approve USDC (need to cover stake + premium)
         vm.prank(user1);
-        mockUSDC.approve(address(insurancePool), 10_000 * 10**6);
+        mockUSDC.approve(address(insurancePool), totalNeeded);
 
         // Join pool
-        uint256 stakeAmount = 10_000 * 10**6; // 10k USDC
         vm.prank(user1);
         insurancePool.joinPool(poolId, tokenId, stakeAmount);
 
@@ -94,15 +98,28 @@ contract InsurancePoolTest is BaseTest {
         vm.prank(deployer);
         uint256 poolId = insurancePool.createPool("Test Pool", 100, 20);
 
-        vm.prank(user1);
-        mockUSDC.approve(address(insurancePool), 20_000 * 10**6);
+        // Calculate total needed for first join
+        uint256 stakeAmount1 = 10_000 * 10**6;
+        uint256 premium1 = (stakeAmount1 * 100) / 10000;
+        uint256 totalNeeded1 = stakeAmount1 + premium1;
 
         vm.prank(user1);
-        insurancePool.joinPool(poolId, tokenId, 10_000 * 10**6);
+        mockUSDC.approve(address(insurancePool), totalNeeded1);
+
+        vm.prank(user1);
+        insurancePool.joinPool(poolId, tokenId, stakeAmount1);
+
+        // Try to join again (should fail)
+        uint256 stakeAmount2 = 5_000 * 10**6;
+        uint256 premium2 = (stakeAmount2 * 100) / 10000;
+        uint256 totalNeeded2 = stakeAmount2 + premium2;
+
+        vm.prank(user1);
+        mockUSDC.approve(address(insurancePool), totalNeeded2);
 
         vm.prank(user1);
         vm.expectRevert();
-        insurancePool.joinPool(poolId, tokenId, 5_000 * 10**6);
+        insurancePool.joinPool(poolId, tokenId, stakeAmount2);
     }
 
     // =============================================================================
@@ -113,20 +130,29 @@ contract InsurancePoolTest is BaseTest {
         vm.prank(deployer);
         uint256 poolId = insurancePool.createPool("Test Pool", 100, 20);
 
-        vm.prank(user1);
-        mockUSDC.approve(address(insurancePool), 10_000 * 10**6);
-
+        // Calculate total needed (stake + premium)
         uint256 stakeAmount = 10_000 * 10**6;
+        uint256 premium = (stakeAmount * 100) / 10000; // 1% premium
+        uint256 totalNeeded = stakeAmount + premium;
+
+        vm.prank(user1);
+        mockUSDC.approve(address(insurancePool), totalNeeded);
+
+        uint256 balanceBeforeJoin = mockUSDC.balanceOf(user1);
         vm.prank(user1);
         insurancePool.joinPool(poolId, tokenId, stakeAmount);
+        uint256 balanceAfterJoin = mockUSDC.balanceOf(user1);
 
-        uint256 balanceBefore = mockUSDC.balanceOf(user1);
+        // User should have paid stake + premium
+        assertEq(balanceBeforeJoin - balanceAfterJoin, totalNeeded, "Should pay stake + premium");
 
+        uint256 balanceBeforeLeave = mockUSDC.balanceOf(user1);
         vm.prank(user1);
         insurancePool.leavePool(poolId, tokenId);
+        uint256 balanceAfterLeave = mockUSDC.balanceOf(user1);
 
-        uint256 balanceAfter = mockUSDC.balanceOf(user1);
-        assertEq(balanceAfter - balanceBefore, stakeAmount, "Should return stake amount");
+        // User should get back only the stake (premium is not refunded)
+        assertEq(balanceAfterLeave - balanceBeforeLeave, stakeAmount, "Should return stake amount");
     }
 
     // =============================================================================
