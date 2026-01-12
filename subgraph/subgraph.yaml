@@ -1,0 +1,118 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: AgentRegistry
+    network: base-sepolia
+    source:
+      address: "{{AGENT_REGISTRY_ADDRESS}}"
+      abi: AgentRegistry
+      startBlock: {{START_BLOCK}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Agent
+        - Transaction
+        - ProtocolStats
+      abis:
+        - name: AgentRegistry
+          file: ./abis/AgentRegistry.json
+        - name: AgentLicense
+          file: ./abis/AgentLicense.json
+      eventHandlers:
+        - event: AgentCreated(indexed bytes32,indexed uint256,indexed address,address)
+          handler: handleAgentCreated
+      file: ./src/agent.ts
+
+  - kind: ethereum
+    name: ReputationScore
+    network: base-sepolia
+    source:
+      address: "{{REPUTATION_SCORE_ADDRESS}}"
+      abi: ReputationScore
+      startBlock: {{START_BLOCK}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Reputation
+        - ReputationUpdate
+        - Badge
+        - CategoryScore
+        - ProtocolStats
+      abis:
+        - name: ReputationScore
+          file: ./abis/ReputationScore.json
+        - name: ReputationScoreV2
+          file: ./abis/ReputationScoreV2.json
+      eventHandlers:
+        - event: ReputationUpdated(indexed uint256,uint256,uint256,uint8)
+          handler: handleReputationUpdated
+        - event: ProofVerified(indexed uint256,string,uint256)
+          handler: handleProofVerified
+        - event: BadgeAwarded(indexed uint256,string)
+          handler: handleBadgeAwarded
+        - event: CategoryScoreUpdated(indexed uint256,string,uint256,uint256)
+          handler: handleCategoryScoreUpdated
+      file: ./src/reputation.ts
+
+  - kind: ethereum
+    name: InsuranceVault
+    network: base-sepolia
+    source:
+      address: "{{INSURANCE_VAULT_ADDRESS}}"
+      abi: InsuranceVault
+      startBlock: {{START_BLOCK}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Stake
+        - Claim
+        - UnstakeRequest
+        - ProtocolStats
+      abis:
+        - name: InsuranceVault
+          file: ./abis/InsuranceVault.json
+      eventHandlers:
+        - event: Staked(indexed uint256,uint256,indexed address)
+          handler: handleStaked
+        - event: Unstaked(indexed uint256,uint256,indexed address)
+          handler: handleUnstaked
+        - event: ClaimSubmitted(indexed bytes32,indexed uint256,indexed address,uint256)
+          handler: handleClaimSubmitted
+        - event: ClaimResolved(indexed bytes32,bool)
+          handler: handleClaimResolved
+        - event: Slashed(indexed uint256,uint256,address)
+          handler: handleSlashed
+        - event: UnstakeRequested(indexed uint256,uint256)
+          handler: handleUnstakeRequested
+      file: ./src/insurance.ts
+
+templates:
+  - kind: ethereum
+    name: InsurancePool
+    network: base-sepolia
+    source:
+      abi: InsurancePool
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - InsurancePool
+        - PoolParticipant
+      abis:
+        - name: InsurancePool
+          file: ./abis/InsurancePool.json
+      eventHandlers:
+        - event: PoolCreated(indexed uint256,string,uint256)
+          handler: handlePoolCreated
+        - event: PoolJoined(indexed uint256,indexed uint256,uint256)
+          handler: handlePoolJoined
+      file: ./src/insurance-pool.ts

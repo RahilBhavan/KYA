@@ -1,0 +1,140 @@
+type Agent @entity {
+  id: ID! # agentId (bytes32 as hex string)
+  tokenId: BigInt!
+  tbaAddress: Bytes!
+  owner: Bytes!
+  name: String!
+  description: String
+  category: String!
+  status: Int!
+  createdAt: BigInt!
+  updatedAt: BigInt!
+  
+  # Relationships
+  reputation: Reputation
+  stakes: [Stake!]! @derivedFrom(field: "agent")
+  claims: [Claim!]! @derivedFrom(field: "agent")
+  transactions: [Transaction!]! @derivedFrom(field: "agent")
+}
+
+type Reputation @entity {
+  id: ID! # tokenId
+  agent: Agent! @derivedFrom(field: "reputation")
+  score: BigInt!
+  tier: Int!
+  verifiedProofs: Int!
+  lastUpdated: BigInt!
+  
+  # Category scores
+  categoryScores: [CategoryScore!]! @derivedFrom(field: "reputation")
+  
+  # Badges
+  badges: [Badge!]! @derivedFrom(field: "reputation")
+  
+  # History
+  updates: [ReputationUpdate!]! @derivedFrom(field: "reputation")
+}
+
+type CategoryScore @entity {
+  id: ID! # tokenId-category
+  reputation: Reputation!
+  category: String!
+  score: BigInt!
+  lastUpdated: BigInt!
+}
+
+type Badge @entity {
+  id: ID! # tokenId-badgeName
+  reputation: Reputation!
+  name: String!
+  description: String
+  tier: Int!
+  awardedAt: BigInt!
+}
+
+type ReputationUpdate @entity {
+  id: ID! # transaction hash + log index
+  reputation: Reputation!
+  oldScore: BigInt!
+  newScore: BigInt!
+  oldTier: Int!
+  newTier: Int!
+  proofType: String
+  scoreIncrease: BigInt
+  timestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Stake @entity {
+  id: ID! # tokenId
+  agent: Agent!
+  amount: BigInt!
+  isVerified: Boolean!
+  stakedAt: BigInt!
+  lastUpdated: BigInt!
+  
+  # Unstake requests
+  unstakeRequests: [UnstakeRequest!]! @derivedFrom(field: "stake")
+}
+
+type UnstakeRequest @entity {
+  id: ID! # transaction hash + log index
+  stake: Stake!
+  requestedAt: BigInt!
+  amount: BigInt
+  completedAt: BigInt
+  status: String! # "pending", "completed", "cancelled"
+}
+
+type Claim @entity {
+  id: ID! # claimId (bytes32 as hex string)
+  agent: Agent!
+  merchant: Bytes!
+  amount: BigInt!
+  reason: String!
+  status: Int! # 0=pending, 1=valid, 2=invalid
+  submittedAt: BigInt!
+  resolvedAt: BigInt
+  resolver: Bytes
+}
+
+type InsurancePool @entity {
+  id: ID! # poolId
+  name: String
+  totalStaked: BigInt!
+  totalCoverage: BigInt!
+  premiumRate: BigInt! # Basis points
+  participants: [PoolParticipant!]! @derivedFrom(field: "pool")
+  createdAt: BigInt!
+}
+
+type PoolParticipant @entity {
+  id: ID! # poolId-tokenId
+  pool: InsurancePool!
+  agent: Agent!
+  stakeAmount: BigInt!
+  joinedAt: BigInt!
+}
+
+type Transaction @entity {
+  id: ID! # transaction hash
+  agent: Agent!
+  from: Bytes!
+  to: Bytes!
+  value: BigInt!
+  gasUsed: BigInt
+  gasPrice: BigInt
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  success: Boolean!
+}
+
+type ProtocolStats @entity {
+  id: ID! # "global"
+  totalAgents: Int!
+  totalStaked: BigInt!
+  totalReputationScore: BigInt!
+  totalClaims: Int!
+  totalVerifiedAgents: Int!
+  lastUpdated: BigInt!
+}
