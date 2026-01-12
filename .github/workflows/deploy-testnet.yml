@@ -1,0 +1,88 @@
+name: Deploy to Base Sepolia
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      network:
+        description: 'Network to deploy to'
+        required: true
+        default: 'base-sepolia'
+        type: choice
+        options:
+          - base-sepolia
+          - base
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.inputs.network == 'base-sepolia'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Install dependencies
+        run: |
+          forge install OpenZeppelin/openzeppelin-contracts --no-commit
+          forge install erc6551/reference --no-commit
+          forge install foundry-rs/forge-std --no-commit
+
+      - name: Build contracts
+        run: forge build
+
+      - name: Run tests
+        run: forge test -vv
+
+      - name: Run security checklist
+        run: |
+          chmod +x script/security-checklist.sh
+          ./script/security-checklist.sh || true
+
+      - name: Deploy to Base Sepolia
+        env:
+          PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY }}
+          BASE_SEPOLIA_RPC_URL: ${{ secrets.BASE_SEPOLIA_RPC_URL }}
+          BASESCAN_API_KEY: ${{ secrets.BASESCAN_API_KEY }}
+          USDC_ADDRESS: 0x036CbD53842c5426634e7929541eC2318f3dCF7e
+          ENTRY_POINT_ADDRESS: 0x0000000071727De22E5E9d8BAf0edAc6f37da032
+        run: |
+          forge script script/DeployBaseSepolia.s.sol \
+            --rpc-url $BASE_SEPOLIA_RPC_URL \
+            --broadcast \
+            --verify \
+            --etherscan-api-key $BASESCAN_API_KEY
+
+      - name: Verify deployment
+        env:
+          BASE_SEPOLIA_RPC_URL: ${{ secrets.BASE_SEPOLIA_RPC_URL }}
+          AGENT_LICENSE: ${{ env.AGENT_LICENSE }}
+          AGENT_REGISTRY: ${{ env.AGENT_REGISTRY }}
+          INSURANCE_VAULT: ${{ env.INSURANCE_VAULT }}
+          REPUTATION_SCORE: ${{ env.REPUTATION_SCORE }}
+          PAYMASTER: ${{ env.PAYMASTER }}
+          MERCHANT_SDK: ${{ env.MERCHANT_SDK }}
+        run: |
+          forge script script/VerifyDeployment.s.sol \
+            --rpc-url $BASE_SEPOLIA_RPC_URL
+
+      - name: Run post-deployment tests
+        env:
+          BASE_SEPOLIA_RPC_URL: ${{ secrets.BASE_SEPOLIA_RPC_URL }}
+        run: |
+          forge test --fork-url $BASE_SEPOLIA_RPC_URL --match-path test/integration/
+
+      - name: Create deployment summary
+        run: |
+          echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Network: Base Sepolia" >> $GITHUB_STEP_SUMMARY
+          echo "- Tag: ${{ github.ref }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+

@@ -1,0 +1,226 @@
+Warning: Found unknown `coverage_output` config for profile `coverage` defined in foundry.toml.
+Warning: Found unknown `coverage_output_file` config for profile `coverage` defined in foundry.toml.
+Warning: Found unknown `exclude` config for profile `coverage` defined in foundry.toml.
+[2m2026-01-07T04:11:06.457905Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC721/ERC721.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.457985Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458003Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/Strings.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458024Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/Pausable.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458056Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/ReentrancyGuard.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458068Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458090Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC20/IERC20.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458102Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC20/utils/SafeERC20.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458116Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/ReentrancyGuard.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458126Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458137Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/Pausable.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458168Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458179Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/ReentrancyGuard.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458197Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458212Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC721/IERC721.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458247Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC1155/IERC1155.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458258Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/utils/introspection/IERC165.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458280Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458298Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/access/AccessControl.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458315Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/forge-std/src/Test.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458383Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC20/ERC20.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458393Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/forge-std/src/Test.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458486Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC20/IERC20.sol": No such file or directory (os error 2)
+[2m2026-01-07T04:11:06.458504Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/token/ERC20/IERC20.sol": No such file or directory (os error 2)
+Unable to resolve imports:
+      "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol" in "/Users/rahilbhavan/projects/KYA/src/InsuranceVault.sol"
+      "@openzeppelin/contracts/utils/Strings.sol" in "/Users/rahilbhavan/projects/KYA/src/AgentLicense.sol"
+      "@openzeppelin/contracts/utils/Pausable.sol" in "/Users/rahilbhavan/projects/KYA/src/AgentRegistry.sol"
+      "forge-std/Test.sol" in "/Users/rahilbhavan/projects/KYA/test/BaseTest.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/integrations/ZKAdapter.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/integrations/OracleAdapter.sol"
+      "@openzeppelin/contracts/token/ERC721/ERC721.sol" in "/Users/rahilbhavan/projects/KYA/src/AgentLicense.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/InsuranceVault.sol"
+      "@openzeppelin/contracts/utils/ReentrancyGuard.sol" in "/Users/rahilbhavan/projects/KYA/src/InsuranceVault.sol"
+      "@openzeppelin/contracts/utils/introspection/IERC165.sol" in "/Users/rahilbhavan/projects/KYA/src/SimpleAccountImplementation.sol"
+      "@openzeppelin/contracts/token/ERC20/IERC20.sol" in "/Users/rahilbhavan/projects/KYA/src/InsuranceVault.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/AgentLicense.sol"
+      "@openzeppelin/contracts/utils/ReentrancyGuard.sol" in "/Users/rahilbhavan/projects/KYA/src/AgentRegistry.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/Paymaster.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/ReputationScore.sol"
+      "@openzeppelin/contracts/token/ERC721/IERC721.sol" in "/Users/rahilbhavan/projects/KYA/src/SimpleAccountImplementation.sol"
+      "@openzeppelin/contracts/access/AccessControl.sol" in "/Users/rahilbhavan/projects/KYA/src/AgentRegistry.sol"
+      "@openzeppelin/contracts/token/ERC1155/IERC1155.sol" in "/Users/rahilbhavan/projects/KYA/src/SimpleAccountImplementation.sol"
+      "@openzeppelin/contracts/token/ERC20/ERC20.sol" in "/Users/rahilbhavan/projects/KYA/test/helpers/MockERC20.sol"
+      "forge-std/Test.sol" in "/Users/rahilbhavan/projects/KYA/test/helpers/TestUtils.sol"
+      "@openzeppelin/contracts/token/ERC20/IERC20.sol" in "/Users/rahilbhavan/projects/KYA/test/unit/InsuranceVault.t.sol"
+      "@openzeppelin/contracts/utils/ReentrancyGuard.sol" in "/Users/rahilbhavan/projects/KYA/src/Paymaster.sol"
+      "@openzeppelin/contracts/token/ERC20/IERC20.sol" in "/Users/rahilbhavan/projects/KYA/test/unit/MerchantSDK.t.sol"
+      "@openzeppelin/contracts/utils/Pausable.sol" in "/Users/rahilbhavan/projects/KYA/src/InsuranceVault.sol"
+with remappings:
+      @openzeppelin/=/Users/rahilbhavan/projects/KYA/lib/openzeppelin-contracts/
+      @erc6551/=/Users/rahilbhavan/projects/KYA/lib/erc6551/src/
+      forge-std/=/Users/rahilbhavan/projects/KYA/lib/forge-std/src/
+Compiling 38 files with Solc 0.8.28
+Solc 0.8.28 finished in 1.26s
+Error: Compiler run failed:
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/AgentLicense.sol:4:1:
+  |
+4 | import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/AgentLicense.sol:5:1:
+  |
+5 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/Strings.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/Strings.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/AgentLicense.sol:6:1:
+  |
+6 | import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/Pausable.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/Pausable.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/AgentRegistry.sol:4:1:
+  |
+4 | import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/AgentRegistry.sol:5:1:
+  |
+5 | import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/AgentRegistry.sol:6:1:
+  |
+6 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/InsuranceVault.sol:4:1:
+  |
+4 | import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/InsuranceVault.sol:5:1:
+  |
+5 | import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/InsuranceVault.sol:6:1:
+  |
+6 | import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/InsuranceVault.sol:7:1:
+  |
+7 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/Pausable.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/Pausable.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/InsuranceVault.sol:8:1:
+  |
+8 | import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/Paymaster.sol:4:1:
+  |
+4 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/Paymaster.sol:5:1:
+  |
+5 | import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/ReputationScore.sol:4:1:
+  |
+4 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/SimpleAccountImplementation.sol:4:1:
+  |
+4 | import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/SimpleAccountImplementation.sol:5:1:
+  |
+5 | import {IERC1155} from "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/SimpleAccountImplementation.sol:6:1:
+  |
+6 | import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/integrations/OracleAdapter.sol:6:1:
+  |
+6 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/access/AccessControl.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> src/integrations/ZKAdapter.sol:7:1:
+  |
+7 | import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/forge-std/src/Test.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/forge-std/src/Test.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> test/BaseTest.sol:4:1:
+  |
+4 | import {Test} from "forge-std/Test.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> test/helpers/MockERC20.sol:4:1:
+  |
+4 | import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/forge-std/src/Test.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/forge-std/src/Test.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> test/helpers/TestUtils.sol:4:1:
+  |
+4 | import {Test} from "forge-std/Test.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> test/unit/InsuranceVault.t.sol:8:1:
+  |
+8 | import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error (6275): Source "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ParserError: Source "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "/Users/rahilbhavan/projects/KYA".
+ --> test/unit/MerchantSDK.t.sol:7:1:
+  |
+7 | import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

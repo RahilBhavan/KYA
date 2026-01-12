@@ -1,0 +1,37 @@
+{
+  "name": "@kya-protocol/integrations",
+  "version": "0.1.0",
+  "description": "KYA Protocol external service integrations (Axiom, Brevis, UMA, Kleros, ERC-4337)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "kya",
+    "protocol",
+    "axiom",
+    "brevis",
+    "uma",
+    "kleros",
+    "erc4337",
+    "zk-proofs",
+    "oracle"
+  ],
+  "author": "KYA Protocol",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.0.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "eslint": "^8.0.0"
+  }
+}
+

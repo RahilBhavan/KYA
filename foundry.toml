@@ -1,0 +1,62 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.28"
+optimizer = true
+optimizer_runs = 200
+evm_version = "cancun"  # Base uses Cancun (required for OpenZeppelin v5)
+via_ir = true  # Required for stack too deep errors
+
+# Remappings for dependencies
+remappings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    "@erc6551/=lib/erc6551/src/",
+    "forge-std/=lib/forge-std/src/"
+]
+
+# Gas reporting
+gas_reports = ["*"]
+gas_reports_ignore = ["test/**/*"]
+
+# Coverage configuration
+[profile.coverage]
+# Exclude test files and mocks from coverage
+exclude = [
+    "test/**/*",
+    "script/**/*",
+    "**/*.t.sol",
+    "**/Mock*.sol",
+    "**/Test*.sol"
+]
+
+# Coverage output formats
+coverage_output = "lcov"
+coverage_output_file = "coverage.lcov"
+
+# RPC endpoints
+[rpc_endpoints]
+base = "${BASE_RPC_URL}"
+base_sepolia = "${BASE_SEPOLIA_RPC_URL}"
+
+# Etherscan verification
+[etherscan]
+base = { key = "${BASESCAN_API_KEY}", url = "https://api.basescan.org/api" }
+base_sepolia = { key = "${BASESCAN_API_KEY}", url = "https://api-sepolia.basescan.org/api" }
+
+# Code formatting
+[fmt]
+line_length = 100
+tab_width = 4
+bracket_spacing = true
+int_types = "long"
+
+# Fuzz testing configuration
+[fuzz]
+runs = 256
+max_test_rejects = 65536
+
+# Invariant testing
+[invariant]
+runs = 256
+depth = 15

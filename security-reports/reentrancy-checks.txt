@@ -1,0 +1,9 @@
+src/AgentRegistry.sol:        nonReentrant
+src/AgentRegistry.sol:        nonReentrant
+src/Paymaster.sol:        nonReentrant
+src/Paymaster.sol:        nonReentrant
+src/InsuranceVault.sol:        nonReentrant
+src/InsuranceVault.sol:        nonReentrant
+src/InsuranceVault.sol:        nonReentrant
+src/InsuranceVault.sol:        nonReentrant
+src/InsuranceVault.sol:        nonReentrant

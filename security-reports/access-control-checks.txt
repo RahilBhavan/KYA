@@ -1,0 +1,23 @@
+src/AgentRegistry.sol:    function setMintingFee(uint256 newFee) external override onlyRole(DEFAULT_ADMIN_ROLE) {
+src/AgentRegistry.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/AgentRegistry.sol:    function pause() external override onlyRole(DEFAULT_ADMIN_ROLE) {
+src/AgentRegistry.sol:    function unpause() external override onlyRole(DEFAULT_ADMIN_ROLE) {
+src/Paymaster.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/Paymaster.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/ReputationScore.sol:    ) external override onlyRole(ZK_PROVER_ROLE) returns (ProofResult memory result) {
+src/ReputationScore.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/ReputationScore.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/ReputationScore.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/ReputationScore.sol:    function createBadge(Badge calldata badge) external onlyRole(DEFAULT_ADMIN_ROLE) {
+src/integrations/OracleAdapter.sol:    ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+src/integrations/ZKAdapter.sol:    ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+src/integrations/ZKAdapter.sol:    ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+src/InsuranceVault.sol:        onlyRole(ORACLE_ROLE)
+src/InsuranceVault.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/InsuranceVault.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/InsuranceVault.sol:        onlyRole(DEFAULT_ADMIN_ROLE)
+src/InsuranceVault.sol:    function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+src/InsuranceVault.sol:    function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+src/AgentLicense.sol:        onlyRole(MINTER_ROLE)
+src/AgentLicense.sol:    function setBaseURI(string calldata baseURI) external override onlyRole(DEFAULT_ADMIN_ROLE) {
+src/AgentLicense.sol:        onlyRole(DEFAULT_ADMIN_ROLE)

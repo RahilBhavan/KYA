@@ -1,0 +1,9 @@
+src/InsuranceVault.sol:import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+src/InsuranceVault.sol: * - SafeERC20 for token transfers
+src/InsuranceVault.sol:    using SafeERC20 for IERC20;
+src/InsuranceVault.sol:        usdc.safeTransferFrom(tbaAddress, address(this), amount);
+src/InsuranceVault.sol:        usdc.safeTransfer(tbaAddress, amount);
+src/InsuranceVault.sol:        usdc.safeTransfer(recipient, payout);
+src/InsuranceVault.sol:        usdc.safeTransfer(recipient, fees);
+src/SimpleAccountImplementation.sol:     * @dev Required to receive ERC-721 tokens via safeTransferFrom
+src/SimpleAccountImplementation.sol:     * @dev Required to receive ERC-1155 tokens via safeTransferFrom
